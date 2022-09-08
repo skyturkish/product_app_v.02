@@ -49,7 +49,7 @@ class RegisterViewState extends State<RegisterView> {
           Padding(
             // TODO padding
             // TODO dışarıdan belirlenmeye okay ama textformfield'ın bir standartı olması lazım düzelt bunu onura atmadan önce
-// TODO Center ve Containerler birbirine girmiş düzelt onları
+            // TODO Center ve Containerler birbirine girmiş düzelt onları
             padding: const EdgeInsets.all(30.0),
             child: Form(
               key: formKey,
