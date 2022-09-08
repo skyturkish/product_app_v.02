@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 import 'INavigationService.dart';
 
@@ -9,7 +9,7 @@ class NavigationService implements INavigationService {
   NavigationService._init();
 
   GlobalKey<NavigatorState> navigatorKey = GlobalKey();
-  final removeAllOldRoutes = (Route<dynamic> route) => false;
+  bool _removeAllOldRoutes(Route<dynamic> route) => false;
 
   @override
   Future<void> navigateToPage({String? path, Object? data}) async {
@@ -18,6 +18,11 @@ class NavigationService implements INavigationService {
 
   @override
   Future<void> navigateToPageClear({String? path, Object? data}) async {
-    await navigatorKey.currentState!.pushNamedAndRemoveUntil(path!, removeAllOldRoutes, arguments: data);
+    await navigatorKey.currentState!.pushNamedAndRemoveUntil(path!, _removeAllOldRoutes, arguments: data);
+  }
+
+  @override
+  Future<void> navigateReplace({String? path, Object? data}) async {
+    await navigatorKey.currentState!.pushReplacementNamed(path!);
   }
 }

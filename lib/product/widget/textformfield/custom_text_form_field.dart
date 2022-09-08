@@ -36,7 +36,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
     return TextFormField(
       controller: widget.controller,
       keyboardType: widget.textInputType,
-      obscureText: !isShowPassword,
+      obscureText: _isPasswordTextFormField ? !isShowPassword : false,
       decoration: InputDecoration(
         fillColor: Colors.brown.withOpacity(0.6),
         filled: true,

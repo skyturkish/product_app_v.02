@@ -1,7 +1,12 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:onurun/core/constants/navigation/navigation_constants.dart';
+import 'package:onurun/core/init/navigation/navigation_service.dart';
 import 'package:onurun/product/widget/textformfield/custom_text_form_field.dart';
+import 'package:onurun/services/auth/auth_exceptions.dart';
+import 'package:onurun/services/auth/auth_service.dart';
+import 'package:onurun/utilities/dialogs/error_dialog.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({Key? key}) : super(key: key);
@@ -39,7 +44,6 @@ class LoginViewState extends State<LoginView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
       body: Stack(
         children: [
           SingleChildScrollView(
@@ -80,39 +84,25 @@ class LoginViewState extends State<LoginView> {
                         border: Border.all(color: Colors.white, width: 2),
                       ),
                       child: MaterialButton(
-                        onPressed: () {
-                          // // assert(emailController != null && passwordController != null);
-                          // if (formKey.currentState!.validate()) {
-                          //   Database.userLogin(email: emailController.text, password: passwordController.text)!
-                          //       .then((user) {
-                          //     SnackBar loginSnack = SnackBar(
-                          //       content: Text(
-                          //         'Login Successfully',
-                          //         textAlign: TextAlign.center,
-                          //       ),
-                          //       backgroundColor: Colors.green,
-                          //       duration: Duration(milliseconds: 500),
-                          //     );
-                          //     ScaffoldMessenger.of(context).showSnackBar(loginSnack);
-                          //     print('user Logged in successfully (userLogin)');
-                          //     Database.currentUser =
-                          //         UserModel(user.user!.uid, user.user!.displayName, user.user!.email);
-                          //     Navigator.pushReplacement(
-                          //         context, MaterialPageRoute(builder: (BuildContext context) => UserLayout()));
-                          //   }).catchError((error) {
-                          //     SnackBar loginSnack = SnackBar(
-                          //       content: Text(
-                          //         'Failed to  login',
-                          //         textAlign: TextAlign.center,
-                          //       ),
-                          //       backgroundColor: Colors.red,
-                          //       duration: Duration(milliseconds: 500),
-                          //     );
-                          //     ScaffoldMessenger.of(context).showSnackBar(loginSnack);
-                          //     print('user Failed to login (userLogin)');
-                          //     print(error.toString());
-                          //   });
-                          // }
+                        onPressed: () async {
+                          // assert(emailController != null && passwordController != null);
+                          if (formKey.currentState!.validate()) {
+                            try {
+                              await AuthService.firebase()
+                                  .logIn(email: emailController.text, password: passwordController.text);
+
+                              if (AuthService.firebase().currentUser != null) {
+                                NavigationService.instance
+                                    .navigateToPageClear(path: NavigationConstants.NAVIGATION_BAR_HOME);
+                              } // TODO burası block gibi state maangement ile düzeltilebilir
+                            } on UserNotFoundAuthException catch (_) {
+                              await showErrorDialog(context, 'Cannot find a user with the entered credentials!');
+                            } on WrongPasswordAuthExpection catch (_) {
+                              await showErrorDialog(context, 'Wrong credentials');
+                            } on GenericAuthException catch (_) {
+                              await showErrorDialog(context, 'Authentication error');
+                            }
+                          }
                         },
                         splashColor: Colors.white,
                         highlightColor: Colors.white,
@@ -151,10 +141,7 @@ class LoginViewState extends State<LoginView> {
                         ),
                         TextButton(
                           onPressed: () {
-                            // Navigator.pushReplacement(
-                            //   context,
-                            //   MaterialPageRoute(builder: (context) => Registration()),
-                            // );
+                            NavigationService.instance.navigateReplace(path: NavigationConstants.REGISTER_VIEW);
                           },
                           child: Text(
                             'SIGN UP',
@@ -172,6 +159,7 @@ class LoginViewState extends State<LoginView> {
                         style: TextStyle(color: Colors.white),
                       ),
                       onPressed: () {
+                        // TODO admin paneline el at
                         if (emailController.text == 'admin@gmail.com' && passwordController.text == 'test1234') {
                           // Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => AdminPanel()));
                         }
