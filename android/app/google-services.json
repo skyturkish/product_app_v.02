@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "162940324972",
+    "project_id": "onurun-sky-sky",
+    "storage_bucket": "onurun-sky-sky.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:162940324972:android:a58521c3ed10f4e08f1c49",
+        "android_client_info": {
+          "package_name": "sky.sky.onurun"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "162940324972-eg8e8ql3m6l7p6shc9vm45o6abfkk9tl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCRHkmDdbCJXDKzpSey7ywYllLMevQOD3c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "162940324972-eg8e8ql3m6l7p6shc9vm45o6abfkk9tl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

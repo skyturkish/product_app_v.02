@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>162940324972-hhgac9n61j1itd0co77p9orjfl9t2tsp.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.162940324972-hhgac9n61j1itd0co77p9orjfl9t2tsp</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDk8A6XWXSQZ9wN63yjpOEd1gZ-kt5_8sc</string>
+	<key>GCM_SENDER_ID</key>
+	<string>162940324972</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>sky.sky.onurun</string>
+	<key>PROJECT_ID</key>
+	<string>onurun-sky-sky</string>
+	<key>STORAGE_BUCKET</key>
+	<string>onurun-sky-sky.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:162940324972:ios:a18f3c520923f4e08f1c49</string>
+</dict>
+</plist>
