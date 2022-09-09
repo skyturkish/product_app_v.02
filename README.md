@@ -13,5 +13,59 @@ code .
 ```
 After project open
 ```
-
+flutter pub add firebase_core firebase_auth cloud_firestore firebase_analytics
 ```
+myproject/android/app/build.gradle should be like
+whatever you are missing, add it.
+```
+
+apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
+
+
+defaultConfig {
+        applicationId "sky.sky.myproject"
+        minSdkVersion 19 
+        targetSdkVersion flutter.targetSdkVersion
+        versionCode flutterVersionCode.toInteger()
+        versionName flutterVersionName
+	multiDexEnabled true
+    }
+	dependencies {
+    ...
+
+    implementation 'com.android.support:multidex:1.0.3'
+    implementation 'com.google.firebase:firebase-analytics'
+}
+```
+
+myproject/androidbuild.gradle should be like
+whatever you are missing, add it.
+```
+
+buildscript {
+  repositories {
+
+    google()  // Google's Maven repository
+
+  }
+  dependencies {
+
+    classpath 'com.google.gms:google-services:4.3.13'
+
+  }
+}
+allprojects {
+  ...
+  repositories {
+    // Check that you have the following line (if not, add it):
+    google()  // Google's Maven repository
+
+    ...
+  }
+}
+```
+we will use the firebase CLI to make our work easier.If you have never used it before. check this out 
+[Firebase CLI](https://firebase.google.com/docs/cli)
+
+
