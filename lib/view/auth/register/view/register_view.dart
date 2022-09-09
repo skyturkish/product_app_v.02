@@ -139,6 +139,10 @@ class RegisterViewState extends State<RegisterView> {
                                 email: emailController.text,
                                 password: passwordController.text,
                               );
+                              if (AuthService.firebase().currentUser != null) {
+                                NavigationService.instance
+                                    .navigateToPageClear(path: NavigationConstants.NAVIGATION_BAR_HOME);
+                              }
                             } on WeakPasswordAuthException catch (_) {
                               await showErrorDialog(context, 'Weak password');
                             } on EmailAlreadyInUseAuthException catch (_) {
