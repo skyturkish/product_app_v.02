@@ -1,6 +1,10 @@
 Install
 ---
+#6 If you want clone
+---
 
+If you don't want to clone
+---
 open terminal
 ```
 flutter create --org <company name or smt> <proje name>
