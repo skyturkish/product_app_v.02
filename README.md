@@ -20,7 +20,7 @@ After project open
 ```
 flutter pub add firebase_core firebase_auth cloud_firestore firebase_analytics curved_navigation_bar provider
 ```
-myproject/android/app/build.gradle should be like
+myproject/android/app/build.gradle should be like;
 whatever you are missing, add it.
 ```
 
@@ -44,7 +44,7 @@ defaultConfig {
 }
 ```
 
-myproject/androidbuild.gradle should be like
+myproject/androidbuild.gradle should be like;
 whatever you are missing, add it.
 ```
 
