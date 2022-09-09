@@ -3,6 +3,7 @@
 ## If you want clone
 ---
 
+
 ## If you don't want to clone
 ---
 open terminal
@@ -79,6 +80,6 @@ firebase login (check if you are log in or not)
 flutterfire configure
 
 ```
-just replace your firebase_options.dart file with project's
+just replace your firebase_options.dart file with project's and use lib file
 
 
