@@ -3,6 +3,7 @@ import 'package:onurun/core/constants/navigation/navigation_constants.dart';
 import 'package:onurun/view/auth/login/view/login_view.dart';
 import 'package:onurun/view/auth/register/view/register_view.dart';
 import 'package:onurun/view/home/navigation_home_view.dart';
+import 'package:onurun/view/home/product/add_product_view.dart';
 
 class NavigationRoute {
   static final NavigationRoute _instance = NavigationRoute._init();
@@ -25,8 +26,8 @@ class NavigationRoute {
       // case NavigationConstants.ADMIN_VIEW:
       //   return normalNavigate(AdminView());
 
-      // case NavigationConstants.ADD_PRODUCT_VIEW:
-      //   return normalNavigate(AddNewProductView());
+      case NavigationConstants.ADD_PRODUCT_VIEW:
+        return normalNavigate(const AppProductView());
       default:
         return MaterialPageRoute(
           builder: (context) => const Scaffold(

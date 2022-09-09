@@ -24,14 +24,20 @@ class ProductCloudFireStoreService extends CloudFireStoreBaseService {
     );
   }
 
+  Future<void> changeIsFavorite({required String documentId, required bool changeBoolValue}) async {
+    final product = collection.doc(documentId);
+    product.update({"isFavorite": changeBoolValue}).then((value) => print("DocumentSnapshot successfully updated!"),
+        onError: (e) => print("Error updating document $e"));
+  }
+
   Stream<Iterable<Product>> allProducts() {
     final allProduct = collection.snapshots().map((event) => event.docs.map((doc) => Product.fromSnapshot(doc)));
     return allProduct;
   }
 
-  Stream<Iterable<Product>> allFavoritedProducts({required List<String> favorites}) {
+  Stream<Iterable<Product>> allFavoritedProducts() {
     final allProduct = collection
-        .where('favorites', arrayContainsAny: favorites)
+        .where('isFavorite', isEqualTo: true)
         .snapshots()
         .map((event) => event.docs.map((doc) => Product.fromSnapshot(doc)));
 

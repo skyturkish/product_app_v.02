@@ -8,6 +8,7 @@ class CustomTextFormField extends StatefulWidget {
     required this.labelText,
     required this.prefix,
     this.passwordTextFormField = false,
+    this.line,
   }) : super(key: key);
 
   final TextEditingController controller;
@@ -15,6 +16,7 @@ class CustomTextFormField extends StatefulWidget {
   final String labelText;
   final Widget prefix;
   final bool passwordTextFormField;
+  final int? line;
   @override
   State<CustomTextFormField> createState() => _CustomTextFormFieldState();
 }
@@ -36,6 +38,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
     return TextFormField(
       controller: widget.controller,
       keyboardType: widget.textInputType,
+      maxLines: widget.line ?? 1,
       obscureText: _isPasswordTextFormField ? !isShowPassword : false,
       decoration: InputDecoration(
         fillColor: Colors.brown.withOpacity(0.6),
