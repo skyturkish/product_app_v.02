@@ -79,6 +79,9 @@ firebase login (check if you are log in or not)
 
 flutterfire configure
 
+	<create a new project>
+	name as unique 
+	select all device (selected all device as default)
 ```
 just replace your firebase_options.dart file with project's and use lib file
 Don't forget open auth and cloudfirestore your firebase console 
