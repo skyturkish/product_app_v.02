@@ -81,5 +81,7 @@ flutterfire configure
 
 ```
 just replace your firebase_options.dart file with project's and use lib file
+Don't forget open auth and cloudfirestore your firebase console 
+[Firebase console](console.firebase.google.com)
 
 
