@@ -68,4 +68,13 @@ allprojects {
 we will use the firebase CLI to make our work easier.If you have never used it before. check this out 
 [Firebase CLI](https://firebase.google.com/docs/cli)
 
+Then. write terminal which place in your project
+```
+firebase login (check if you are log in or not)
+
+flutterfire configure
+
+```
+just replace your firebase_options.dart file with project's
+
 
