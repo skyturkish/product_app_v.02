@@ -1,3 +1,12 @@
+onura:
+Uygulamada yazılan kodların çoğu genel prensipler;
+https://www.youtube.com/c/HardwareAndro
+https://www.youtube.com/c/VandadNP
+https://flutter.dev/learn
+https://firebase.google.com/docs/flutter/setup
+https://firebase.google.com/docs/flutter/setup?platform=android
+https://www.youtube.com/watch?v=H6NJHb5BJyE&t=14271s
+
 # Install
 ---
 ## If you want clone
